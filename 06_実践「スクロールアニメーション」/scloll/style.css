@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #fff;
+  background: url(./images/yumekawab03_.jpg) no-repeat center center fixed;
+  overflow-x: hidden;
+}
+
+canvas {
+  width: 300vw;
+  height: 300vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.area {
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  color: #000;
+
+  background-attachment: fixed;
+  overflow-x: hidden;
+}

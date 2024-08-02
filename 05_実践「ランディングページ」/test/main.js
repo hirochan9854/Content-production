@@ -1,7 +1,7 @@
-import './style.css';
+import "./style.css";
 import * as THREE from "three";
-import GUI from 'lil-gui';
-import Stats from 'stats-js';
+import GUI from "lil-gui";
+import Stats from "stats-js";
 
 console.log(THREE);
 
@@ -30,7 +30,12 @@ const sizes = {
 const scene = new THREE.Scene();
 
 // カメラ
-const camera = new THREE.PerspectiveCamera(35, sizes.width / sizes.height, 0.1, 100);
+const camera = new THREE.PerspectiveCamera(
+  35,
+  sizes.width / sizes.height,
+  0.1,
+  100
+);
 camera.position.set(0, 0, 6);
 scene.add(camera);
 
@@ -77,31 +82,31 @@ mesh3.position.set(-2, 0, 0);
 
 // ランダムな幾何学模様（線のみ）の生成関数
 function createRandomGeometry() {
-    const geometry = new THREE.BoxGeometry(0.5,0.5,0.5); // 小さなボックスジオメトリ
-    const wireframe = new THREE.WireframeGeometry(geometry);
-    const material = new THREE.LineBasicMaterial({ color: 0x000000 });
-    const line = new THREE.LineSegments(wireframe, material);
-    line.position.x = (Math.random() - 0.5) * 20;
-    line.position.y = (Math.random() - 0.5) * 20;
-    line.position.z = (Math.random() - 0.5) * 20;
+  const geometry = new THREE.BoxGeometry(0.5, 0.5, 0.5); // 小さなボックスジオメトリ
+  const wireframe = new THREE.WireframeGeometry(geometry);
+  const material = new THREE.LineBasicMaterial({ color: 0x000000 });
+  const line = new THREE.LineSegments(wireframe, material);
+  line.position.x = (Math.random() - 0.5) * 20;
+  line.position.y = (Math.random() - 0.5) * 20;
+  line.position.z = (Math.random() - 0.5) * 20;
 
-    // ランダムな回転
-    line.rotation.x = Math.random() * 2 * Math.PI;
-    line.rotation.y = Math.random() * 2 * Math.PI;
-    line.rotation.z = Math.random() * 2 * Math.PI;
-    return line;
+  // ランダムな回転
+  line.rotation.x = Math.random() * 2 * Math.PI;
+  line.rotation.y = Math.random() * 2 * Math.PI;
+  line.rotation.z = Math.random() * 2 * Math.PI;
+  return line;
 }
 
 // 立方体のリストを保持
 const geometries = [];
 
 // 複数のランダムな幾何学模様をシーンに追加
-for (let i = 0; i < 1000; i++) { // 数を増やす
-    const geometry = createRandomGeometry();
-    geometries.push(geometry);
-    scene.add(geometry);
-};
-
+for (let i = 0; i < 1000; i++) {
+  // 数を増やす
+  const geometry = createRandomGeometry();
+  geometries.push(geometry);
+  scene.add(geometry);
+}
 
 const bufferGeometry = new THREE.BufferGeometry();
 const count = 5000;
@@ -111,10 +116,7 @@ for (let i = 0; i < count * 3; i++) {
   vertices[i] = (Math.random() - 0.5) * 10;
 }
 
-bufferGeometry.setAttribute(
-  "position",
-  new THREE.BufferAttribute(vertices, 3)
-);
+bufferGeometry.setAttribute("position", new THREE.BufferAttribute(vertices, 3));
 
 const pointMaterial = new THREE.PointsMaterial({
   size: 0.025,
@@ -144,13 +146,13 @@ window.addEventListener("resize", () => {
 const cursor = {
   x: 0,
   y: 0,
-}
+};
 
 // 追加
 const dist = {
   x: 0,
   y: 0,
-}
+};
 window.addEventListener("mousemove", (e) => {
   cursor.x = e.clientX / sizes.width - 0.5;
   cursor.y = 0.5 - e.clientY / sizes.height;
@@ -176,7 +178,7 @@ const animate = () => {
   camera.position.x = dist.x;
   camera.position.y = dist.y;
 
-    geometries.forEach((geometry) => {
+  geometries.forEach((geometry) => {
     geometry.rotation.x += 0.002;
     geometry.rotation.y += 0.002;
   });

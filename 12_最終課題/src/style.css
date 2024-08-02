@@ -1,21 +1,139 @@
-body {
-  background-color: #fff;
-  overflow-x: hidden;
-}
-
 #webgl {
   position: fixed;
   top: 0;
   left: 0;
   z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  color: #fff;
 }
 
 header,
 section {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
 }
+
+header h1 {
+  background-color: #fff;
+  padding: 0.5em 1em;
+}
+
+header h1,
+section h2 {
+  font-size: 3em;
+  margin: 0.5em 0;
+  color: #ff4081;
+}
+
+header p {
+  font-size: 1.5em;
+  color: #ff4081;
+  background-color: #fff;
+  padding: 0.5em 1em;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+ul {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+  color: #ff4081;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #f50057;
+}
+
+.sponsor,
+.program {
+  padding: 60px 0;
+}
+
+.about p {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.program div {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.program dl {
+  width: 30%;
+  margin: 20px;
+}
+.program dl dt {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: solid 5px #ff4081;
+  overflow: hidden;
+}
+.program dl .name {
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-top: 10px;
+  color: #ff4081;
+}
+
+.sponsor ul {
+  margin-top: 40px;
+  justify-content: center;
+  align-items: center;
+}
+.sponsor li {
+  margin: 20px;
+  width: 30%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.entry a {
+  padding: 20px 40px;
+  background-color: #ff4081;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 700;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.entry a:hover {
+  background-color: #f50057;
+  transform: scale(1.05);
+}
+/*# sourceMappingURL=style.css.map */
